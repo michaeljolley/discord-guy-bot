@@ -13,8 +13,7 @@ RUN npm i --silent
 # Copy the rest of the files
 COPY ./ .
 
-# Update the build version and build the application
-# RUN npm version $BUILDVERSION --allow-same-version
+# Build the application
 RUN npm run build
 
 # Put together the release image with the just build artifacts
