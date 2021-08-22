@@ -46,4 +46,4 @@ jobs:
           location: 'central us'
           os-type: Linux
           restart-policy: Always
-          secure-environment-variables: FAUNADB_SECRET=${{ secrets.CD_FAUNADB_SECRET }} DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
+          secure-environment-variables: FAUNADB_SECRET=${{ secrets.FAUNADB_SECRET }} DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
