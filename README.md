@@ -4,7 +4,7 @@
 
 # Guy Bot
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/michaeljolley/discord-guy-bot/CD) ![GitHub](https://img.shields.io/github/license/michaeljolley/discord-guy-bot) ![https://discord.com/oauth2/authorize?client_id=878808315528871936&permissions=0&scope=bot%20messages.read](https://img.shields.io/badge/discord-invite-blueviolet)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/michaeljolley/discord-guy-bot/CD) ![GitHub](https://img.shields.io/github/license/michaeljolley/discord-guy-bot) [![Invite to Discord](https://img.shields.io/badge/discord-invite-blueviolet)](https://discord.com/oauth2/authorize?client_id=878808315528871936&permissions=0&scope=bot%20messages.read)
 
 A friendly Discord bot that helps server members use more inclusive language.
 
