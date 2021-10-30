@@ -36,7 +36,6 @@ Normally reviews & merging occur live on stream at [https://twitch.tv/baldbearde
 Some things that will increase the chance that your pull request is accepted:
 
 - Update [README][readme] with any needed changes
-- Update [CHANGELOG](CHANGELOG.md) with any changes
 - **Write tests.**
 - Write a [good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
 
