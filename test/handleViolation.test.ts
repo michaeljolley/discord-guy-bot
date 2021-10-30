@@ -4,6 +4,7 @@ import * as sinon from 'sinon';
 
 import bot from '../src/bot'
 import { FaunaClient } from '../src/fauna';
+import { IOffense } from '../src/types/message';
 import { Notice } from '../src/types/notice';
 import { badMessageFromEnd, newNotice, oldNotice } from './mocks';
 
@@ -43,7 +44,10 @@ suite('Violation Handler Tests', function() {
         return Promise.resolve([])
       })
 
-    await bot.handleViolation(badMessageFromEnd)
+    const badMessage = badMessageFromEnd as IOffense
+    badMessage.offense = 'guys'
+
+    await bot.handleViolation(badMessage)
     
     createDMStub.called.should.be.true
     reactStub.called.should.be.true
@@ -58,7 +62,10 @@ suite('Violation Handler Tests', function() {
         return Promise.resolve([newNotice])
       })
 
-    await bot.handleViolation(badMessageFromEnd)
+    const badMessage = badMessageFromEnd as IOffense
+    badMessage.offense = 'lads'
+
+    await bot.handleViolation(badMessage)
     
     createDMStub.called.should.be.false
     reactStub.called.should.be.true
@@ -73,7 +80,10 @@ suite('Violation Handler Tests', function() {
         return Promise.resolve([oldNotice])
       })
 
-    await bot.handleViolation(badMessageFromEnd)
+    const badMessage = badMessageFromEnd as IOffense
+    badMessage.offense = 'guys'
+
+    await bot.handleViolation(badMessage)
     
     createDMStub.called.should.be.true
     reactStub.called.should.be.true

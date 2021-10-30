@@ -32,7 +32,7 @@ export const badMessageFromStart: IMessage = {
 }
 
 export const badMessageFromEnd: IMessage = {
-  cleanContent: 'This is a violating message. What do you think guys?',
+  cleanContent: 'This is a violating message. What do you think lads?',
   author,
   guild,
   react: () => {},
