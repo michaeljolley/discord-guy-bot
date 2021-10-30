@@ -12,6 +12,10 @@ export interface IMessage {
   reply: Function
 }
 
+export interface IOffense extends IMessage {
+  offense: string
+}
+
 export interface IDMChannel {
   send: Function
 }

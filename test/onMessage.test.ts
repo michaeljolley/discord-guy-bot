@@ -3,20 +3,20 @@ import { suite, suiteSetup, suiteTeardown } from 'mocha'
 import * as sinon from 'sinon';
 
 import bot from '../src/bot'
-import { IMessage } from '../src/types/message';
+import { IMessage, IOffense } from '../src/types/message';
 import { badMessageFromEnd, badMessageFromStart, safeMessage } from './mocks';
 
 chai.should();
 
 suite('Message Handler Tests', function() {
 
-  let handleViolationStub: sinon.SinonStub<[message: IMessage], Promise<void>>
+  let handleViolationStub: sinon.SinonStub<[offendingMessage: IOffense], Promise<void>>
 
-  suiteSetup(function() {
+  this.beforeEach(function() {
     handleViolationStub = sinon.stub(bot, 'handleViolation')
   })
 
-  suiteTeardown(function() {
+  this.afterEach(function() {
     handleViolationStub.restore()
   })
 
