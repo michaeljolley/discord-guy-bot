@@ -10,24 +10,27 @@ A friendly Discord bot that helps server members use more inclusive language.
 
 ## How Does it Work?
 
-When a user sends a message in a Discord channel that includes the word "guys" in the
-first 10 words, a `guy-bot` reaction is added to the message and a DM is sent
-to the author with the following:
+When a user sends a message in a Discord channel that includes a word that is
+less than inclusive (i.e. "guys", "bros", "dudes", "chaps", etc.) in the
+first 10 or last 5 words, a `guy-bot` reaction is added to the message and a
+DM is sent to the author with the following:
 
 > Please bear in mind that the makeup of the {server name here} Discord server
-> is very diverse, and some people feel excluded by the use of the term “guys”.
-> Maybe you could try using people, team, all, folks, everyone, or yall? Thanks
-> for helping us make sure everyone feels welcome here.
+> is very diverse, and some people feel excluded by the use of the term
+> “{OFFENDING WORD}”. Maybe you could try using people, team, all, folks,
+> everyone, or yall? Thanks for helping us make sure everyone feels welcome
+> here.
 
-If that user sends another message that includes the word "guys" in the first 10
-words within a month, that message will also receive a `guy-bot` reaction, but
-the message will be sent in the channel for everyone to see. Example:
+If that user sends another message that includes a non-inclusive word in the
+first 10 or last 5 words within a month, that message will also receive a
+`guy-bot` reaction, but the message will be sent in the channel for everyone
+to see. Example:
 
 > {author mentioned here}, Please bear in mind that the makeup of the
 > {server name here} Discord server is very diverse, and some people
-> feel excluded by the use of the term “guys”. Maybe you could try using
-> people, team, all, folks, everyone, or yall? Thanks for helping us make
-> sure everyone feels welcome here.
+> feel excluded by the use of the term “{OFFENDING WORD}”. Maybe you could
+> try using people, team, all, folks, everyone, or yall? Thanks for helping us
+> make sure everyone feels welcome here.
 
 ## Development and Contributing
 
@@ -42,10 +45,12 @@ To make sure our community is safe for all, be sure to review and agree to our
 We love to hear from you so if you have questions, comments or find a bug in the
 project, let us know! You can either:
 
-- [Open an issue](https://github.com/michaeljolley/discord-guy-bot/issues/new) on this repository
+- [Open an issue](https://github.com/michaeljolley/discord-guy-bot/issues/new)
+on this repository
 - Tweet at me! I'm [@baldbeardbuild on Twitter](https://twitter.com/baldbeardbuild)
 
 ## Attribution & Credits
 
 Thanks to [Luke Oliff](https://github.com/lukeocodes). His Slack-based
-[guys-bot](https://github.com/lukeocodes/guys-bot) repository was the inspiration for this project.
+[guys-bot](https://github.com/lukeocodes/guys-bot) repository was the
+inspiration for this project.
