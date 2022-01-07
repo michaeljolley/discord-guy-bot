@@ -10,12 +10,19 @@ const flaggedWords = [
 ]
 
 export default async function onMessage(message: IMessage): Promise<void> {
+  const cleanMessage = message
+    .cleanContent
+    .replace(/[^\A-Za-z\s]/g, '') // filter out characters such as punctuation marks
+    .toLocaleLowerCase()
+    .split(' ')
 
-  const firstWords = message.cleanContent.toLocaleLowerCase().split(' ').slice(0, 4)
-  const uniqueWords = message.cleanContent.toLocaleLowerCase().split(' ').length
-  const lastWords = message.cleanContent.toLocaleLowerCase().split(' ').slice(uniqueWords - 5, uniqueWords )
+  const firstWords = cleanMessage.slice(0, 4)
+  const uniqueWords = cleanMessage.length
+  const lastWords = cleanMessage.slice(uniqueWords - 5, uniqueWords)
 
-  const offendingWord = flaggedWords.find(f => firstWords.includes(f) || flaggedWords.find(f => lastWords.includes(f)))
+  const offendingWord =
+  	flaggedWords.find(f => firstWords.includes(f)) ||
+	flaggedWords.find(f => lastWords.includes(f))
   
   if (offendingWord !== undefined) {
     const offense = message as IOffense
