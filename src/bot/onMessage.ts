@@ -15,7 +15,7 @@ export default async function onMessage(message: IMessage): Promise<void> {
   const uniqueWords = message.cleanContent.toLocaleLowerCase().split(' ').length
   const lastWords = message.cleanContent.toLocaleLowerCase().split(' ').slice(uniqueWords - 5, uniqueWords )
 
-  const offendingWord = flaggedWords.find(f => firstWords.some(w => w.includes(f))) || flaggedWords.find(f => lastWords.some(w => w.includes(f)))
+  const offendingWord = flaggedWords.find(f => firstWords.includes(f) || flaggedWords.find(f => lastWords.includes(f)))
   
   if (offendingWord !== undefined) {
     const offense = message as IOffense
