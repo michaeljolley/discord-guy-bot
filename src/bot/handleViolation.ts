@@ -1,5 +1,5 @@
 import { FaunaClient } from '../fauna'
-import { IMessage, IOffense } from '../types/message'
+import { IOffense } from '../types/message'
 
 export default async function handleViolation(offendingMessage: IOffense): Promise<void> {
   const discordServer = offendingMessage.guild ? `the ${offendingMessage.guild.name} Discord server` : 'this Discord'
@@ -9,11 +9,11 @@ export default async function handleViolation(offendingMessage: IOffense): Promi
   
   await offendingMessage.react('guybot:879023217149358121')
 
-  // Show a little grace. If the person hasn't said guy in
-  // over a month, give them a little slack.
+  // Show a little grace. If the person hasn't said something
+  // wrong in  over a month, give them a little slack.
   if (previousNotices) {
-    const lastMonth = new Date(Date.now() + 1000 * 60 * 60 * 24 * 30 * 1)
-    previousNotices = previousNotices.filter(f => f.createdAt >= lastMonth.getDate())
+    const lastMonth = new Date(Date.now() + 1000 * 60 * 60 * 24 * -30)
+    previousNotices = previousNotices.filter(f => f.createdAt >= lastMonth.getTime())
   }
 
   // If a repeat offender, put them on blast in the channel
