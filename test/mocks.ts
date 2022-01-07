@@ -48,5 +48,5 @@ export const newNotice: Notice = {
 export const oldNotice: Notice = {
   user: '123456',
   guild: '987654',
-  createdAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 40 * 1).getDate()
+  createdAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * -40).getTime()
 }
