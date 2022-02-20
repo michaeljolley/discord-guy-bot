@@ -21,8 +21,6 @@ export default async function onMessage(message: IMessage): Promise<void> {
   const uniqueWords = cleanMessage.length
   const lastWords = cleanMessage.slice(uniqueWords - 5, uniqueWords)
 
-  console.log(`Message received on ${message.guild?.name} from ${message.author.id}: "${message.cleanContent}"`)
-
   const offendingWord =
   	flaggedWords.find(f => firstWords.includes(f)) ||
 	flaggedWords.find(f => lastWords.includes(f))
