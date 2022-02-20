@@ -1,10 +1,10 @@
 import * as chai from 'chai';
-import { suite, suiteSetup, suiteTeardown } from 'mocha'
+import { suite } from 'mocha'
 import * as sinon from 'sinon';
 
 import bot from '../src/bot'
-import { IMessage, IOffense } from '../src/types/message';
-import { badMessageFromEnd, badMessageFromStart, safeMessage } from './mocks';
+import { IOffense } from '../src/types/message';
+import { badMessageFromEnd, badMessageFromStart, badMessageFromStartWithLineBreak, safeMessage } from './mocks';
 
 chai.should();
 
@@ -32,6 +32,11 @@ suite('Message Handler Tests', function() {
 
   it('Should flag a message with offense at the end', async function() {
     await bot.onMessage(badMessageFromEnd)
+    handleViolationStub.called.should.be.true
+  })
+  
+  it('Should flag a message with offense at the end', async function() {
+    await bot.onMessage(badMessageFromStartWithLineBreak)
     handleViolationStub.called.should.be.true
   })
 })
