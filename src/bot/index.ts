@@ -11,7 +11,7 @@ const bot =  {
 }
 
 async function run(): Promise<void> {
-  try {    const client = new Client({ partials: ["USER", "REACTION", "MESSAGE"] })
+  try {
     const client = new Client({ 
       intents: [
         Intents.FLAGS.GUILDS, 
