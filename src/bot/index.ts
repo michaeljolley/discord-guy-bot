@@ -1,4 +1,4 @@
-import { Client } from 'discord.js'
+import { Client, Intents } from 'discord.js'
 import { FaunaClient } from '../fauna'
 import onMessage from './onMessage'
 import handleViolation from './handleViolation'
@@ -12,7 +12,9 @@ const bot =  {
 
 async function run(): Promise<void> {
   try {
-    const client = new Client({ partials: ["USER", "REACTION", "MESSAGE"] })
+    const client = new Client({ 
+      intents: [Intents.FLAGS.GUILDS]
+    })
     FaunaClient.init()
 
     client.once('ready', () => {

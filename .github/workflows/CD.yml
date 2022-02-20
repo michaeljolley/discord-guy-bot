@@ -29,3 +29,21 @@ jobs:
           docker build . --tag ${{ secrets.ACR_LOGIN }}/guybot:${{ steps.bump.outputs.version }} --tag ${{ secrets.ACR_LOGIN }}/guybot:latest
           docker push ${{ secrets.ACR_LOGIN }}/guybot:${{ steps.bump.outputs.version }}
           docker push ${{ secrets.ACR_LOGIN }}/guybot:latest
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: 'Deploy to Azure Container Instances'
+        uses: 'azure/aci-deploy@v1'
+        with:
+          resource-group: guybot
+          dns-name-label: guybot
+          image: ${{ secrets.ACR_LOGIN }}/guybot:${{ steps.bump.outputs.version }}
+          registry-login-server: ${{ secrets.ACR_LOGIN }}
+          registry-username: ${{ secrets.ACR_USERNAME }}
+          registry-password: ${{ secrets.ACR_PASSWORD }}
+          name: guybot
+          location: 'central us'
+          os-type: Linux
+          restart-policy: Always
+          secure-environment-variables: FAUNADB_SECRET=${{ secrets.FAUNADB_SECRET }} DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
