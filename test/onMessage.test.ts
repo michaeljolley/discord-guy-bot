@@ -35,7 +35,7 @@ suite('Message Handler Tests', function() {
     handleViolationStub.called.should.be.true
   })
   
-  it('Should flag a message with offense at the end', async function() {
+  it('Should ignore line breaks', async function() {
     await bot.onMessage(badMessageFromStartWithLineBreak)
     handleViolationStub.called.should.be.true
   })

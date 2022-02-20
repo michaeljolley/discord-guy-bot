@@ -5,6 +5,8 @@ export default async function handleViolation(offendingMessage: IOffense): Promi
   const discordServer = offendingMessage.guild ? `the ${offendingMessage.guild.name} Discord server` : 'this Discord'
   const messageBody = `Please bear in mind that the makeup of ${discordServer} is very diverse, and some people feel excluded by the use of the term “${offendingMessage.offense}”. Maybe you could try using _people_, _team_, _all_, _folks_, _everyone_, or _yall_? Thanks for helping us make sure everyone feels welcome here.`
   
+  console.log(`Offending message: identified "${offendingMessage.offense}" in "${offendingMessage.cleanContent}".`)
+
   let previousNotices = await FaunaClient.getNoticesByUser(offendingMessage.author.id, offendingMessage.guild?.id || '')
   
   await offendingMessage.react('guybot:879023217149358121')
