@@ -11,6 +11,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.KEY }}
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '16'
       - uses: tool3/bump@master
         id: bump
         with:
