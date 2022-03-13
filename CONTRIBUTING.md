@@ -25,7 +25,7 @@ Fork, then clone the repo:
 
     git clone git@github.com:your-username/discord-guy-bot.git
 
-Push to your fork and [submit a pull request](https://github.com/michaeljolley/discord-guy-bot/compare/) against the `main` branch.
+Push to your fork and [submit a pull request](https://github.com/builders-club/discord-guy-bot/compare/) against the `main` branch.
 
 At this point you're waiting on us. We like to at least comment on pull requests
 within three days (and, typically, one day). We may suggest
