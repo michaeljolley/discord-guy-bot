@@ -1,3 +1,4 @@
+import { Client } from 'discord.js'
 import { log } from '../common'
 import { IMessage, IOffense } from '../types/message'
 import bot from './'
@@ -10,7 +11,13 @@ const flaggedWords = [
   'dudes'
 ]
 
-export default async function onMessage(message: IMessage): Promise<void> {
+export default async function onMessage(client: Client, message: IMessage): Promise<void> {
+  // If this message is from the bot, disregard.
+  if (client.user && client.user.id === message.author.id) {
+    log(`msg: ${message.id}: received by bot`)
+    return
+  }
+
   const cleanMessage = message
     .cleanContent
     .replace(/[^\A-Za-z\s]/g, '') // filter out characters such as punctuation marks
