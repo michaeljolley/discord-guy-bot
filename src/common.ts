@@ -8,6 +8,7 @@ export const getTime = (): { hours: string; minutes: string} => {
 };
 
 export const log = (message: string) => {
-  const timestamp = getTime()
+  const { hours, minutes } = getTime()
+  const timestamp = `${hours}:${minutes}`
   console.log(`[${timestamp}] ${message}`)
 }
