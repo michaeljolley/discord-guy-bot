@@ -1,5 +1,6 @@
 export interface IMessage {
   cleanContent: string
+  id: string
   guild: {
     id: string
     name: string

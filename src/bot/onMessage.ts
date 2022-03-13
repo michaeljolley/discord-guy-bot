@@ -1,3 +1,4 @@
+import { log } from '../common'
 import { IMessage, IOffense } from '../types/message'
 import bot from './'
 
@@ -25,10 +26,14 @@ export default async function onMessage(message: IMessage): Promise<void> {
   	flaggedWords.find(f => firstWords.includes(f)) ||
 	flaggedWords.find(f => lastWords.includes(f))
 
+  log(`msg: ${message.id}: received`)
+
   if (offendingWord !== undefined) {
     const offense = message as IOffense
     offense.offense = offendingWord
     
+    log(`msg: ${message.id}: offense found: ${offendingWord}`)
+
     await bot.handleViolation(offense)
   }
 }

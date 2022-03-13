@@ -1,3 +1,4 @@
+import { log } from '../common'
 import { FaunaClient } from '../fauna'
 import { IOffense } from '../types/message'
 
@@ -7,6 +8,7 @@ export default async function handleViolation(offendingMessage: IOffense): Promi
   
   let previousNotices = await FaunaClient.getNoticesByUser(offendingMessage.author.id, offendingMessage.guild?.id || '')
   
+  log(`msg: ${offendingMessage.id}: adding reaction`)
   await offendingMessage.react('guybot:879023217149358121')
 
   // Show a little grace. If the person hasn't said something
@@ -16,12 +18,16 @@ export default async function handleViolation(offendingMessage: IOffense): Promi
     previousNotices = previousNotices.filter(f => f.createdAt >= lastMonth.getTime())
   }
 
+  log(`msg: ${offendingMessage.id}: previous offenses: ${(previousNotices ? previousNotices.length : 0)}`)
+
   // If a repeat offender, put them on blast in the channel
   if (previousNotices && previousNotices.length > 0) {
+    log(`msg: ${offendingMessage.id}: replying in channel`)
     await offendingMessage.reply(messageBody)
   } 
   // Send a DM to discreetly let them know about the servers expectations
   else {
+    log(`msg: ${offendingMessage.id}: dm sent to user`)
     const dmChannel = await offendingMessage.author.createDM()
     dmChannel.send(messageBody)
   }
