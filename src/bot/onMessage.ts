@@ -14,7 +14,7 @@ const flaggedWords = [
 
 export default async function onMessage(clientUser: ClientUser | null, message: IMessage): Promise<void> {
   // If this message is from the bot, disregard.
-  if (clientUser && clientUser.id === message.author.id) {
+  if (clientUser !== null && clientUser.id === message.author.id) {
     return
   }
 
