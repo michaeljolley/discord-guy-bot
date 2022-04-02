@@ -21,22 +21,22 @@ suite('Message Handler Tests', function() {
   })
 
   it('Should disregard message with no offending text', async function() {
-    await bot.onMessage(safeMessage)
+    await bot.onMessage(null, safeMessage)
     handleViolationStub.called.should.be.false
   })
   
   it('Should flag a message with offense at the start', async function() {
-    await bot.onMessage(badMessageFromStart)
+    await bot.onMessage(null, badMessageFromStart)
     handleViolationStub.called.should.be.true
   })
 
   it('Should flag a message with offense at the end', async function() {
-    await bot.onMessage(badMessageFromEnd)
+    await bot.onMessage(null, badMessageFromEnd)
     handleViolationStub.called.should.be.true
   })
   
   it('Should ignore line breaks', async function() {
-    await bot.onMessage(badMessageFromStartWithLineBreak)
+    await bot.onMessage(null, badMessageFromStartWithLineBreak)
     handleViolationStub.called.should.be.true
   })
 })

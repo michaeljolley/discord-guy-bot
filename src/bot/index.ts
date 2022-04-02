@@ -28,7 +28,7 @@ async function run(): Promise<void> {
       }
     })
     
-    client.on('messageCreate', (data) => bot.onMessage(client, data as unknown as IMessage))
+    client.on('messageCreate', async (data) => bot.onMessage(client.user, data as unknown as IMessage))
 
     await client.login(process.env.DISCORD_TOKEN)
   } catch (error) {

@@ -22,7 +22,7 @@ export default async function handleViolation(offendingMessage: IOffense): Promi
   } 
   // Send a DM to discreetly let them know about the servers expectations
   else {
-    const dmChannel = await offendingMessage.author.createDM()
+    const dmChannel = offendingMessage.author.createDM()
     dmChannel.send(messageBody)
   }
 

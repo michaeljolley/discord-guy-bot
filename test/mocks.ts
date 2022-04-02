@@ -19,6 +19,7 @@ export const safeMessage: IMessage = {
   cleanContent: 'This is a safe message that should not cause any violations.',
   author,
   guild,
+  id: 'blahblahblah',
   react: () => {},
   reply: () => {}
 }
@@ -27,6 +28,7 @@ export const badMessageFromStart: IMessage = {
   cleanContent: 'Hey guys, this is a violating message.',
   author,
   guild,
+  id: 'blahblahblah',
   react: () => {},
   reply: () => {}
 }
@@ -35,6 +37,7 @@ export const badMessageFromStartWithLineBreak: IMessage = {
   cleanContent: 'Hey guys\nthis is a violating message.',
   author,
   guild,
+  id: 'blahblahblah',
   react: () => {},
   reply: () => {}
 }
@@ -43,6 +46,7 @@ export const badMessageFromEnd: IMessage = {
   cleanContent: 'This is a violating message. What do you think lads?',
   author,
   guild,
+  id: 'blahblahblah',
   react: () => {},
   reply: () => {}
 }

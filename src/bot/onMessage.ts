@@ -1,4 +1,4 @@
-import { Client } from 'discord.js'
+import { ClientUser } from 'discord.js'
 import { IMessage, IOffense } from '../types/message'
 import bot from './'
 
@@ -7,12 +7,14 @@ const flaggedWords = [
   'lads',
   'chaps',
   'bros',
-  'dudes'
+  'dudes',
+  'fellas',
+  'gents',
 ]
 
-export default async function onMessage(client: Client, message: IMessage): Promise<void> {
+export default async function onMessage(clientUser: ClientUser | null, message: IMessage): Promise<void> {
   // If this message is from the bot, disregard.
-  if (client.user && client.user.id === message.author.id) {
+  if (clientUser && clientUser.id === message.author.id) {
     return
   }
 
