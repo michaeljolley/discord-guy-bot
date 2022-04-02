@@ -8,7 +8,8 @@
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/**/*.ts",
-    "test": "mocha -r ts-node/register **/*.test.ts --insect"
+    "test": "mocha -r ts-node/register **/*.test.ts --insect",
+    "start": "node ./dist/index.js"
   },
   "repository": {
     "type": "git",
