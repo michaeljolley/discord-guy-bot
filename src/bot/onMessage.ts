@@ -14,8 +14,8 @@ const flaggedWords = [
 
 export default async function onMessage(clientUser: ClientUser | null, message: IMessage): Promise<void> {
   // If this message is from the bot, disregard.
-  if (clientUser !== null && clientUser.id === message.author.id) {
-    return
+  if (clientUser !== null && clientUser.id !== null && clientUser.id === message.author.id) {
+    return Promise.resolve()
   }
 
   const cleanMessage = message
@@ -24,6 +24,8 @@ export default async function onMessage(clientUser: ClientUser | null, message: 
     .replace('\n', ' ') // convert line breaks to spaces
     .toLocaleLowerCase()
     .split(' ')
+
+  console.log(cleanMessage)
 
   const firstWords = cleanMessage.slice(0, 4)
   const uniqueWords = cleanMessage.length

@@ -1,3 +1,5 @@
+import { Snowflake } from "discord.js"
+
 export interface IMessage {
   cleanContent: string
   id: string
@@ -6,7 +8,7 @@ export interface IMessage {
     name: string
   } | undefined
   author: {
-    id: string
+    id: Snowflake
     createDM: () => IDMChannel
   }
   react: Function
