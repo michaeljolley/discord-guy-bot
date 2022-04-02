@@ -7,7 +7,7 @@ export default async function handleViolation(offendingMessage: IOffense): Promi
   
   let previousNotices = await FaunaClient.getNoticesByUser(offendingMessage.author.id, offendingMessage.guild?.id || '')
   
-  await offendingMessage.react('guybot:959962565105033227')
+  await offendingMessage.react('guybot:879823686083936326')
 
   // Show a little grace. If the person hasn't said something
   // wrong in  over a month, give them a little slack.
