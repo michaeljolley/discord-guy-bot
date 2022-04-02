@@ -1,5 +1,4 @@
 import { Client } from 'discord.js'
-import { log } from '../common'
 import { IMessage, IOffense } from '../types/message'
 import bot from './'
 
@@ -14,7 +13,6 @@ const flaggedWords = [
 export default async function onMessage(client: Client, message: IMessage): Promise<void> {
   // If this message is from the bot, disregard.
   if (client.user && client.user.id === message.author.id) {
-    log(`msg: ${message.id}: received by bot`)
     return
   }
 
@@ -31,15 +29,11 @@ export default async function onMessage(client: Client, message: IMessage): Prom
 
   const offendingWord =
   	flaggedWords.find(f => firstWords.includes(f)) ||
-	flaggedWords.find(f => lastWords.includes(f))
-
-  log(`msg: ${message.id}: received`)
+	  flaggedWords.find(f => lastWords.includes(f))
 
   if (offendingWord !== undefined) {
     const offense = message as IOffense
     offense.offense = offendingWord
-    
-    log(`msg: ${message.id}: offense found: ${offendingWord}`)
 
     await bot.handleViolation(offense)
   }
