@@ -4,7 +4,7 @@
 
 # Guy Bot
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/builders-club/discord-guy-bot/CD) ![GitHub](https://img.shields.io/github/license/builders-club/discord-guy-bot) [![Invite to Discord](https://img.shields.io/badge/discord-invite-blueviolet)](https://discord.com/oauth2/authorize?client_id=878808315528871936&permissions=0&scope=bot%20messages.read)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/michaeljolley/discord-guy-bot/CD) ![GitHub](https://img.shields.io/github/license/michaeljolley/discord-guy-bot?color=blue&style=flat-round) [![Invite to Discord](https://img.shields.io/badge/discord-invite-blueviolet)](https://discord.com/oauth2/authorize?client_id=878808315528871936&permissions=0&scope=bot%20messages.read)
 
 A friendly Discord bot that helps server members use more inclusive language.
 
@@ -37,17 +37,17 @@ to see. Example:
 Interested in contributing? We ❤️ pull requests!
 
 To make sure our community is safe for all, be sure to review and agree to our
-[Code of Conduct](./CODE_OF_CONDUCT.md). Then see the
-[Contribution](./CONTRIBUTING.md) guidelines for more information.
+[Code of Conduct](./.github/CODE_OF_CONDUCT.md). Then see the
+[Contribution](./.github/CONTRIBUTING.md) guidelines for more information.
 
 ## Getting Help
 
 We love to hear from you so if you have questions, comments or find a bug in the
 project, let us know! You can either:
 
-- [Open an issue](https://github.com/builders-club/discord-guy-bot/issues/new)
+- [Open an issue](https://github.com/michaeljolley/discord-guy-bot/issues/new)
 on this repository
-- Tweet at me! I'm [@baldbeardbuild on Twitter](https://twitter.com/baldbeardbuild)
+- Tweet at me! I'm [@michaeljolley on Twitter](https://twitter.com/michaeljolley)
 
 ## Attribution & Credits
 
